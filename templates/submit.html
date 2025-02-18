@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Submit Manuscript
+{% endblock %}
+
+{% block main %}
+<h4 class="alert alert-primary d-flex justify-content-center">Submission Form</h4>
+<form action="/submit" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+    <div class="accordion m-5 p-2" id="submission">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Manuscript Information
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="form-floating mb-3">
+                        <input type="text" required class="form-control" id="floatingTitle" name="title" placeholder="Title">
+                        <label for="floatingTitle">Title</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea required class="form-control" id="floatingAbstract" name="abstract" placeholder="Abstract"></textarea>
+                        <label for="floatingAbstract">Abstract</label>
+                    </div>
+                    <h6>Keywords</h6>
+                    <div id="keywords">
+                        <div class="row mb-2">
+                            <div class="col-5">
+                                <input type="text" required name="keyword1" id="keyword1" class="form-control">
+                            </div>
+                            <div class="col">
+                                <button type="button" class="btn btn-outline-primary" id="row1" onclick="addRow();">Add Row</button>
+                            </div>
+                        </div>
+                    </div>
+                    <input hidden id="keywordCount" name="keywordCount" value="1">
+                </div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Author Information
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="row mb-3">
+                        <div class="col form-floating mb-3">
+                            <input disabled type="text" class="form-control" id="floatFirstName" value="{{ person.first_name }}" name="first_name" placeholder="{{ person.first_name }}">
+                            <label class="disable" for="floatFirstName">First Name</label>
+                        </div>
+                        <div class="col form-floating mb-3">
+                            <input disabled type="text" class="form-control" id="floatLastName" value="{{ person.last_name }}" name="last_name" placeholder="{{ person.last_name }}">
+                            <label class="disable" for="floatLastName">Last Name</label>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" required name="email" value="{{ person.email }}" id="floatingEmail" placeholder="Email">
+                        <label for="floatingEmail">Email Address</label>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Manuscript Files
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Manuscript Text</label>
+                        <input class="form-control" type="file" name="ms_file" id="formFile" accept=".pdf, .doc, .docx, .txt" required>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button class=" btn btn-primary" type="submit">Submit Manuscript</button>
+    </div>
+    <div class="formError" style="visibility: hidden; color: red; text-align: center; margin-top: 10px;">Please complete all required fields.</div>
+    <div class="mb-5"></div>
+</form>
+{% endblock %}

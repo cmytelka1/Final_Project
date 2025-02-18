@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Manuscript Status
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid ms-5">
+        {% if count > 0 %}
+            {% for manuscript in manuscripts %}
+
+                <h4>{{ manuscript.ms_name }}</h4>
+                <div class="mb-3">
+                    {{ manuscript.status }}
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+            No Pending manuscripts.
+        {% endif %}
+        <br>
+    </div>
+{% endblock %}

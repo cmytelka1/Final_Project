@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<form action="/register" method="post">
+    <div class="container-fluid mb-3 ms-4 d-flex flex-column align-items-center">
+        <div>
+            <h3>Register</h3>
+            <p>Fill in the below fields to register for an account.</p>
+        </div>
+        <div class="form-floating mb-2">
+            <input class="form-control" autocomplete="off" name="first_name" id="reg_first_name" placeholder="First Name" type="text" required>
+            <label for="reg_first_name">First Name</label>
+        </div>
+        <div class="form-floating mb-2">
+            <input class="form-control" autocomplete="off" name="last_name" id="reg_last_name" placeholder="Last Name" type="text" required>
+            <label for="reg_last_name">Last Name</label>
+        </div> 
+        <div class="form-floating mb-2">
+            <input class="form-control" autocomplete="off" name="email" id="reg_email" placeholder="Email" type="email" required>
+            <label for="reg_email">Email</label>
+        </div> 
+        <div class="form-floating mb-2">
+            <input class="form-control" autocomplete="off" name="username" id="reg_username" placeholder="Username" type="text" required>
+            <label for="reg_username">Username</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input class="form-control" autocomplete="off" name="password" id="reg_password" placeholder="Password" type="password" required>
+            <label for="reg_password">Password</label>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

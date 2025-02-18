@@ -1,0 +1,19 @@
+
+.form-floating>label.disable {
+  left:11px;
+}
+
+#floatingAbstract{
+    height:100px;
+}
+
+#login_username, 
+#login_password, 
+#reg_first_name,
+#reg_last_name,
+#reg_username,
+#reg_password,
+#reg_email
+{
+  width: 15em;
+}

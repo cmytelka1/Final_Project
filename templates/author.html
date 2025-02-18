@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Flask-Submit
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid">
+        <h2>Welcome, {{ user.first_name }}!</h2>
+    </div>
+    <div class="container">
+        <a href="/submit">Submit Manuscript</a>
+        <br>
+        <a href="/status">Check Manuscript Status</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<form action="/login" method="post">
+    <div class="container-fluid mb-3 ms-4">
+        <div class="d-flex flex-column align-items-center">
+            <h3>Welcome!</h3>
+            <p>Please enter your user name and password, or Register for a new account.</p>
+            <div class="form-floating mb-2">
+                <input class="form-control" autocomplete="off" name="username" id="login_username" placeholder="Username" type="text" required>
+                <label for="login_username">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" autocomplete="off" name="password" id="login_password" placeholder="Password" type="password" required>
+                <label for="login_password">Password</label>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

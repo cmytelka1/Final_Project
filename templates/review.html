@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Review
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid ms-3">
+        <h2>Welcome, Editor!</h2>
+    </div>
+    <div class="container-fluid ms-5">
+        {% if count > 0 %}
+            {% for manuscript in manuscripts %}
+
+                <a href="{{ url_for('show_ms', ms_id=manuscript.ms_id) }}">{{ manuscript.ms_name }}</a><br>
+
+            {% endfor %}
+
+        {% else %}
+            No Pending manuscripts.
+        {% endif %}
+        <br>
+    </div>
+{% endblock %}
